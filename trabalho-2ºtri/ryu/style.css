@@ -1,0 +1,15 @@
+#tela {
+  width: 1790px;
+  height: 800px;
+  background-color: #e7e7e7;
+  padding: 50px;
+}
+
+img {
+  position: absolute;
+}
+#raduqui {
+  margin-top: 50px;
+  position: absolute;
+  opacity: 0;
+}
