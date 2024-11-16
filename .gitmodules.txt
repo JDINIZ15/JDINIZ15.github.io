@@ -1,0 +1,3 @@
+[submodule "Atividades-PC-web"]
+    path = Atividades-PC-web
+    url = https://JDINIZ15.github.io/PC_web_2024/Atividades-PC-web.git
