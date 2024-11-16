@@ -1,0 +1,25 @@
+h1 {
+  background: #ff1;
+}
+p {
+  background: #fa1;
+  margin: 40px;
+}
+button {
+  background: rgb(209, 179, 179);
+  width: 150px;
+  height: 150px;
+  font-size: 50px;
+  border: none;
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: red;
+}
+
+.caixinha {
+  background: red;
+  padding-top: 25px;
+  border: 20px solid black;
+}

@@ -1,0 +1,18 @@
+div {
+  background: #aaa;
+  width: 150px;
+  height: 130px;
+  padding: 20px;
+  border: 10px solid red;
+  margin: 170px;
+}
+h1 {
+  background-color: aqua;
+  width: 150px;
+  height: 150px;
+  margin: 170px;
+  border: 0px;
+}
+body {
+  margin: 0%;
+}

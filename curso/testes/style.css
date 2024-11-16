@@ -1,0 +1,42 @@
+body {
+  margin: 0 0;
+  padding: 0 0;
+}
+img {
+  border: black 10px;
+  place-content: center;
+}
+#caixa1 {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  padding: 10px;
+  border-bottom: solid black;
+}
+#caixa2 {
+  display: grid;
+  margin: 0px 50px;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+}
+.produtos {
+  border: solid black 2px;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#titulo1 {
+  display: grid;
+  margin: 20px;
+}
+#titulo1 {
+  text-align: center;
+}
+.imgs {
+  grid-column: 2;
+  place-content: end;
+}
+.descricaos {
+  grid-column: 1;
+}

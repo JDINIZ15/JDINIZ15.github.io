@@ -1,0 +1,18 @@
+.hoje {
+  font-size: 20px;
+  color: darkred;
+}
+.amanha {
+  font-size: 20px;
+  color: darkblue;
+}
+.link {
+  text-decoration: none;
+}
+.linkA {
+  text-decoration: none;
+  color: seagreen;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
