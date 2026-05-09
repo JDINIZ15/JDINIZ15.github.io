@@ -8,7 +8,7 @@ btn.addEventListener("click", () =>{
   nome = nome.toLowerCase()
 
   if(nome == "clara" && senha == "0905"){
-    window.location.href = "/html/EuteAmo.html";
+    window.location.href = "html/EuteAmo.html";
   }
   else{
     alert("Sai Fora, intruso!")
