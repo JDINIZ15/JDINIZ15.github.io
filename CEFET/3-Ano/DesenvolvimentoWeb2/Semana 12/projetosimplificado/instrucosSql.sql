@@ -1,0 +1,16 @@
+CREATE DATABASE IF NOT EXISTS teste DEFAULT CHARSET=utf8 DEFAULT COLLATE=utf8_unicode_ci;
+USE teste;
+DROP TABLE IF EXISTS produto;
+CREATE TABLE produto(id INT AUTO_INCREMENT PRIMARY KEY,
+descricao VARCHAR(30) NOT NULL, preco_de_custo DECIMAL(9,2) NOt NULL,
+UNIQUE INDEX unq_produto__descricao(descricao))ENGINE=INNODB;
+
+INSERT INTO produto(id, descricao,preco_de_custo) 
+VALUES(1,'HEINECKEN',4.50),(2,'GUARANÁ',3.50),(3,'STELLA ATROIS',4.45),(4,'BECKS',4.50),
+(5,'LEITE',8.50),(6,'CX DE BOMBOM GAROTO',15.00),(7,'SALGADINHO TORCIDA QUEIJO',3.50),
+(8,'ERVILHA',4.50);
+
+
+Criar um banco de dados para um sistema de empréstimos de livros com as tabelas usuário, livro e empréstimo. Montar as tabelas com chaves estrangeiras onde for preciso.
+
+Usuario ↔ Emprestimo ↔ Livro

@@ -1,0 +1,255 @@
+/*Letra A*/
+create database EMPRESA;
+ 
+ use empresa;
+ 
+/*Letra B*/
+Create table cargo (
+codigo bigint primary key,
+nome varchar(50)
+);
+
+
+Create table departamento(
+codigo bigint primary key,
+nome varchar(50),
+funcionario_gerente bigint
+);
+
+
+
+Create table funcionario(
+codigo bigint primary key,
+funcionario_gerente bigint,
+nome varchar(50),
+data_contratacao date,
+salario bigint,
+cod_cargo bigint,
+departamento_alocado bigint
+);
+
+alter table funcionario add foreign key (cod_cargo) references cargo(codigo);
+
+
+alter table funcionario add foreign key (departamento_alocado) references departamento(codigo);
+
+
+alter table departamento add foreign key (funcionario_gerente) references funcionario(codigo);
+
+
+/*Letra C e D*/
+insert into cargo (codigo, nome)
+	values(1, 'ANALISTA');
+
+
+insert into cargo (codigo, nome)
+	values(2, 'PROJETISTA');
+
+
+insert into cargo (codigo, nome)
+	values(3, 'PROGRAMADOR');
+
+
+
+insert into departamento (codigo, nome, funcionario_gerente)
+	values(10, 'VENDAS', null);
+
+
+insert into departamento (codigo, nome, funcionario_gerente)
+	values(11, 'COMPRAS', null);
+
+
+insert into departamento (codigo, nome, funcionario_gerente)
+	values(12, 'Financeiro', null);
+
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(101, 'JOÃO', '2010-05-10', 3200.00, 1, 10 );
+
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(102, 'PEDRO', '2010-05-15', 3200.00, 1, 10 );
+
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(103, 'MATHEUS', '2010-05-20', 4000.00, 2, 11 );
+
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(104, 'MARIA', '2010-06-15', 4500.00, 1, 10 );
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(105, 'LUCAS', '2011-01-25', 2500.00, 3, 12 );
+
+
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(106, 'ISABEL', '2011-02-12', 2750.00, 3, 11 );
+
+
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(107, 'ANTONIO', '2011-06-10', 4000.00, 1, 12 );
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(108, 'TEREZA', '2012-01-12', 2750.00, 2, 11 );
+
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(109, 'MARCOS', '2012-03-10', 3200.00, 3, 10 );
+
+
+update departamento 
+set funcionario_gerente = 104
+where codigo = 10;
+
+
+update departamento 
+set funcionario_gerente = 103
+where codigo = 11;
+
+
+update departamento 
+set funcionario_gerente = 107
+where codigo = 12;
+
+
+/*Letra E*/
+
+select * from funcionario;
+select * from departamento;
+select * from cargo;
+
+
+/*Letra F*/
+
+select nome, data_contratacao, salario from funcionario;
+
+
+
+
+/*Letra g*/
+
+select * from funcionario
+where salario >= 3000 AND salario <= 4000;
+
+
+
+
+
+
+/*Letra H*/
+
+select * from funcionario
+where data_contratacao >= '2011-01-01' AND data_contratacao <= '2011-12-31';
+
+
+
+/*Letra I*/
+
+select f.nome, f.data_contratacao, f.salario, c.nome
+from funcionario f, cargo c
+where f.cod_cargo = c.codigo
+order by data_contratacao ASC;
+
+
+
+
+
+/*Letra J*/
+
+select f.nome, f.salario, d.nome
+from funcionario f, departamento d
+where f.departamento_alocado = d.codigo
+order by d.nome, f.nome ASC;
+
+
+
+/*Letra K*/
+
+
+select d.nome,f.nome, f.salario
+from funcionario f, departamento d
+where d.funcionario_gerente = f.codigo
+order by d.nome ASC;
+
+
+
+/*Letra L*/
+
+insert into departamento(codigo, nome, funcionario_gerente)
+	values(13, 'RECURSOS HUMANOS', NULL);
+
+insert into departamento(codigo, nome, funcionario_gerente)
+	values(14, 'TELEMARKENTING', NULL);
+
+
+
+/*Letra M*/
+
+insert into funcionario(codigo, nome, data_contratacao, salario, cod_cargo, departamento_alocado)
+values(110, 'Agostinho', '2015-07-17', 0.00, null, null );
+
+
+
+/*Letra N*/
+
+SELECT d.nome, d.codigo, d.funcionario_gerente
+from departamento d
+LEFT join funcionario f
+on d.codigo = f.departamento_alocado 
+where f.departamento_alocado is null;
+
+
+/*Letra O*/
+select f.nome
+from funcionario f
+left join departamento d
+on f.departamento_alocado = d.codigo
+where f.departamento_alocado is null;
+
+
+/*Letra P*/
+delete 
+from funcionario
+where codigo = 101;
+
+
+/*Letra Q*/
+/*delete 
+from departamento
+where departamento.codigo = 10;
+
+delete 
+from funcionario 
+where funcionario.departamento_alocado = 10;*/
+
+
+/*Letra R*/
+alter table funcionario add  genero char (1);
+
+
+/*Letra S*/
+alter table funcionario drop data_contratacao;
+
+
+/*Letra T*/
+create index idxNome on funcionario (nome);
+
+ 
+
+
+
+
+
+
+
+

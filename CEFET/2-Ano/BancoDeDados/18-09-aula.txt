@@ -1,0 +1,46 @@
+/*mostra a estrtura da tabela*/
+DESC cliente;
+select *
+FROM cliente;
+
+SELECT id, nome
+FROM cliente;
+
+select id as PK nome as Name
+from cliente; 
+
+select *
+from cliente;
+WHERE rendamensal >=15;
+
+select nome, rendamensal, rendamensal*2
+from cliente;
+where rendamensal => 5 && (UF = 'AM' || UF = 'CE');
+
+select * 
+from cliente
+order by name asc;
+
+-------------------------------------------------------------------------------------------------
+
+/*Atividade*/
+1)
+SELECT nome, preco*0.5 
+from produto;
+
+2)
+select nome, rendamensal*0.5
+from cliente
+where UF='RJ';
+
+3)
+select nome
+from produto
+ORDER BY nome;
+
+ 4)
+SELECT nome, rendamensal
+FROM cliente 
+order by rendamensal asc;
+ 
+

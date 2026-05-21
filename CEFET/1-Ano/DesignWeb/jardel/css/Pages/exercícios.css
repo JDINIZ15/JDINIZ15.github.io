@@ -1,0 +1,37 @@
+.exercicio__main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 3%;
+}
+.exercicio__box {
+    margin-bottom: 100px;
+    border: 5px solid black;
+    background-color: #ffc044;;
+    padding: 2% 4% 4% 4%;
+}
+.exercicio__list__h2 {
+    text-align: center;
+    padding-bottom: 45px;
+    font-size: 30px;
+}
+
+.exercicio__list__conteudo {
+    display: flex;
+    justify-content: space-around;
+}
+.exercicio__list__item {
+    margin: 10%;
+    border: 3px solid black;
+    background-color: #cc9225;
+    text-align: center;
+}
+
+.exercicio__list__link {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+
+.exercicio__list__link:hover {
+    background-color: white;
+}

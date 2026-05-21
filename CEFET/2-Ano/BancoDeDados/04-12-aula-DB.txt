@@ -1,0 +1,357 @@
+CREATE DATABASE aluguel CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE aluguel;
+
+CREATE TABLE Inquilino (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CPF VARCHAR(11) UNIQUE NOT NULL,
+    Telefone VARCHAR(15),
+    Endereco VARCHAR(255)
+);
+
+CREATE TABLE Imovel (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Endereco VARCHAR(255) NOT NULL,
+    Tipo VARCHAR(50) NOT NULL,
+    Valor_Aluguel DECIMAL(10, 2) NOT NULL,
+    Situacao ENUM('disponivel', 'alugado', 'manutencao') DEFAULT 'disponivel'
+);
+
+CREATE TABLE Aluguel (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Data_Inicio DATE NOT NULL,
+    Data_Termino DATE,
+    Valor_Aluguel DECIMAL(10, 2) NOT NULL,
+    Status_Contrato ENUM('ativo', 'encerrado') DEFAULT 'ativo',
+    Inquilino_ID INT NOT NULL,
+    Imovel_ID INT NOT NULL,
+    FOREIGN KEY (Inquilino_ID) REFERENCES Inquilino(ID),
+    FOREIGN KEY (Imovel_ID) REFERENCES Imovel(ID)
+);
+
+-- Populando a tabela Inquilino
+INSERT INTO Inquilino (Nome, CPF, Telefone, Endereco) VALUES
+('João Silva', '12345678901', '11987654321', 'Rua A, 100'),
+('Maria Oliveira', '23456789012', '21976543210', 'Avenida B, 200'),
+('Pedro Santos', '34567890123', '31965432109', 'Rua C, 300'),
+('Ana Costa', '45678901234', '41954321098', 'Avenida D, 400'),
+('Carlos Lima', '56789012345', '51943210987', 'Rua E, 500'),
+('Paula Souza', '67890123456', '61932109876', 'Avenida F, 600'),
+('Lucas Rocha', '78901234567', '71921098765', 'Rua G, 700'),
+('Fernanda Melo', '89012345678', '81910987654', 'Avenida H, 800'),
+('Rafael Alves', '90123456789', '91909876543', 'Rua I, 900'),
+('Juliana Pereira', '01234567890', '10198765432', 'Avenida J, 1000');
+
+-- Populando a tabela Imovel
+INSERT INTO Imovel (Endereco, Tipo, Valor_Aluguel, Situacao) VALUES
+('Rua X, 101', 'Apartamento', 1200.00, 'disponivel'),
+('Avenida Y, 202', 'Casa', 1500.00, 'disponivel'),
+('Rua Z, 303', 'Sala Comercial', 800.00, 'disponivel'),
+('Avenida W, 404', 'Apartamento', 2000.00, 'disponivel'),
+('Rua V, 505', 'Casa', 1800.00, 'disponivel'),
+('Avenida U, 606', 'Sala Comercial', 1000.00, 'disponivel'),
+('Rua T, 707', 'Apartamento', 1300.00, 'disponivel'),
+('Avenida S, 808', 'Casa', 1700.00, 'disponivel'),
+('Rua R, 909', 'Sala Comercial', 900.00, 'disponivel'),
+('Avenida Q, 1001', 'Apartamento', 1400.00, 'disponivel');
+
+-- Populando a tabela Aluguel
+INSERT INTO Aluguel (Data_Inicio, Data_Termino, Valor_Aluguel, Status_Contrato, Inquilino_ID, Imovel_ID) VALUES
+('2024-01-01', '2024-12-31', 1200.00, 'ativo', 1, 1),
+('2024-02-01', '2024-11-30', 1500.00, 'ativo', 2, 2),
+('2024-03-01', NULL, 800.00, 'ativo', 3, 3),
+('2024-04-01', '2024-10-31', 2000.00, 'ativo', 4, 4),
+('2024-05-01', NULL, 1800.00, 'ativo', 5, 5),
+('2024-06-01', '2024-12-31', 1000.00, 'ativo', 6, 6),
+('2024-07-01', '2024-09-30', 1300.00, 'ativo', 7, 7),
+('2024-08-01', '2024-12-31', 1700.00, 'ativo', 8, 8),
+('2024-10-01', NULL, 1400.00, 'ativo', 10, 10),
+('2024-02-01', '2024-12-31', 1300.00, 'ativo', 1, 2),
+('2024-03-01', '2024-12-31', 800.00, 'ativo', 2, 3),
+('2024-04-01', '2024-10-01', 2000.00, 'encerrado', 3, 4),
+('2024-05-01', NULL, 1700.00, 'ativo', 4, 5),
+('2024-06-01', '2024-12-31', 1200.00, 'ativo', 5, 6),
+('2024-07-01', '2024-12-31', 1500.00, 'ativo', 6, 7),
+('2024-08-01', NULL, 1000.00, 'ativo', 7, 8),
+('2024-09-01', '2024-11-30', 900.00, 'encerrado', 8, 9);
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+create schema aula0712 default character set utf8;
+
+# Tornar o schema aula6a ativo para as demais operações 
+
+use aula0712;
+
+
+# ---------------------
+# MODELO: pedido_v2.mwb
+# ---------------------
+
+# REVISÃO
+# Criar tabelas com chaves primarias e estrangeiras utilizando o script
+
+create table Categoria (
+
+	idCategoria int not null,
+	nome varchar(30) not null,
+    
+	primary key (idCategoria)
+);
+
+create table Produto (
+
+	idProduto int not null,
+ 	nome varchar(45) not null,
+	preco decimal(10,2),
+	idcategoria int,
+    
+	primary key (idProduto),
+	foreign key (idCategoria) references Categoria(idCategoria)
+);
+
+create table Cliente (
+
+	idCliente int not null,
+ 	nome varchar(45) not null,
+    data_nasc date not null,
+    logradouro varchar(45),
+    numero int,
+    bairro varchar(45),
+    cidade varchar(45),
+    telefone varchar(20),
+    
+	primary key (idCliente)
+);
+
+create table Pedido (
+
+	idPedido int not null,
+	data_emissao date not null,
+    idcliente int not null,
+    
+	primary key (idPedido),
+	foreign key (idCliente) references Cliente(idCliente)
+);
+
+# Implementacao da relacao MxN com uso de ID unico na tabela intermediaria
+# Chave primaria com autoincremento para IDs (chaves artificiais)
+
+create table ItensPedido (
+
+	id int AUTO_INCREMENT,
+	idPedido int not null,
+    idProduto int not null,
+    qtde int not null,
+    
+	primary key (id),
+	foreign key (idPedido) references Pedido(idPedido),
+	foreign key (idProduto) references Produto(idProduto)
+);
+
+# Inserir dados nas tabelas criadas
+
+insert into Categoria (idCategoria, nome)
+	values 
+    (10, 'Bebida'),
+	(20, 'Lanche'),
+	(30, 'Sobremesa'),
+	(40, 'Refeição'),
+	(50, 'Porções');
+
+insert into Produto (idProduto, nome, preco, idCategoria)
+	values 
+	(101, 'Água com Gás',	2.55, 10),
+	(102, 'Misto Quente',	4.25, 20),
+	(103, 'Hamburguer',		4.75, 20),
+	(104, 'Salgado',		3.95, 20),
+	(105, 'Bolo de Laranja',4.95, 30),
+	(106, 'Refrigerante',	3.95, 10),
+	(107, 'Água sem Gás',	2.15, 10),
+	(108, 'Suco de Uva',	2.15, 10),
+	(109, 'Sorvete', 		4.55, 30),
+    (110, 'Torta de Limão',	null, 30),
+    (111, 'Mousse de Limão',null, 30),
+    (112, 'Não Cadastrado' ,null, null);
+
+insert into Cliente(idCliente, nome, data_nasc, logradouro, numero, bairro, cidade, telefone)
+values
+	(1001,'Joao',	'2001-05-10',	'Rua A',	100, 'Centro', 'Nova Friburgo', '(22) 99999-0011'),
+	(1002,'Pedro',	'1992-05-15',	'Rua B',	200, 'Centro', 'Nova Friburgo', '(22) 99999-0022'),
+	(1003,'Matheus','1989-05-20',	'Rua C',	300, 'Centro', 'Nova Friburgo', '(22) 99999-0033'),
+	(1004,'Maria',	'2000-06-15',	'Rua D',	400, 'Olaria', 'Nova Friburgo', '(22) 99999-0044'),
+	(1005,'Lucas',	'1990-06-25',	'Rua E',	500, 'Olaria', 'Nova Friburgo', '(22) 99999-0055'),
+	(1006,'Isabel',	'1974-02-12',	'Rua F',	600, 'Cônego', 'Nova Friburgo', '(22) 99999-0066'),
+	(1007,'Antonio','1960-06-10',	'Rua A',	110, 'Centro', 'Nova Friburgo', '(22) 99999-0077');
+
+insert into Pedido (idPedido, data_emissao, idCliente)
+values
+	(201, '2018-07-15', 1001),
+	(202, '2018-08-10', 1004),
+	(203, '2018-09-05', 1005),
+	(204, '2018-10-21', 1002),
+	(205, '2018-11-25', 1005),
+	(206, '2018-12-14', 1007),
+	(207, '2019-01-02', 1004),
+	(208, '2019-02-10', 1005),
+	(209, '2019-03-16', 1001),
+	(210, '2019-04-22', 1002),
+	(211, '2019-05-13', 1001);
+
+# A chave primaria é criada automaticamente
+
+insert into ItensPedido (idPedido, idProduto, qtde)
+values
+	(201, 103, 1),
+	(201, 108, 1),
+	(202, 102, 1),
+	(202, 106, 2),
+	(202, 109, 2),
+	(203, 104, 2),
+	(203, 106, 1),
+	(204, 101, 1),
+	(204, 105, 2),
+	(205, 103, 1),
+	(205, 106, 1),
+	(206, 107, 1),
+	(206, 109, 1),
+	(207, 101, 3),
+	(208, 102, 1),
+	(208, 108, 1),
+	(209, 101, 2),
+	(210, 107, 4),
+	(211, 103, 1),
+	(211, 104, 1),
+	(211, 104, 1);
+
+# Listar os dados das tabelas
+
+select * from Categoria;
+select * from Produto;
+select * from Cliente;
+select * from Pedido;
+select * from ItensPedido;
+
+
+# REVISÃO
+# Join com 3 tabelas
+
+# Exemplo
+# Listar para cada pedido o numero do pedido, a data de emissão, 
+# o código, nome, preco e qtde dos itens do pedido.
+
+select Pedido.idPedido, 
+	   Pedido.data_emissao,
+       Produto.idProduto,
+       Produto.nome,
+       Produto.preco,
+       ItensPedido.qtde
+
+	from ItensPedido
+
+    join Pedido
+    on ItensPedido.idPedido = Pedido.idPedido
+
+    join Produto
+    on ItensPedido.idProduto = Produto.idProduto
+    
+    order by ItensPedido.idPedido, ItensPedido.idProduto;
+
+
+
+
+# INNER JOIN
+# Método de junção mais conhecido, retorna os registros que são comuns às duas tabelas
+
+# Exemplo
+# Listas as categorias e os produtos das categorias
+# Obs: categorias que não tenham produtos associados não são incluídas no resultado;
+
+select c.nome, p.nome, p.preco
+	from categoria c
+    inner join produto p
+    on p.idcategoria = c.idCategoria
+    order by c.nome, p.nome;
+
+# O inner join é aplicado como default para o join
+# sem usar a palavra-chave inner, o resultado é o mesmo
+
+select c.nome, p.nome, p.preco
+	from categoria c
+    join produto p
+    on p.idcategoria = c.idCategoria
+    order by c.nome, p.nome;
+
+
+# LEFT JOIN
+# Tem como resultado todos os registros que estão na tabela A (mesmo que não estejam na tabela B)
+# e os registros da tabela B que são comuns à tabela A
+
+# Exemplo
+# Listas todas as categorias (mesmo que não tenha produtos associados) e os produtos das categorias
+# A tabela considerada LEFT é a que é citada PRIMEIRO no script (neste exemplo, a tabela categoria)
+
+select c.nome, p.nome, p.preco
+	from categoria c
+    left join produto p
+    on p.idcategoria = c.idCategoria
+    order by c.nome, p.nome;
+
+
+# RIGHT JOIN
+# Tem como resultado todos os registros que estão na tabela B (mesmo que não estejam na tabela A) 
+# e os registros da tabela A que são comuns à tabela B.
+
+# Exemplo: o mesmo se aplica o exemplo anterior com as tabelas citadas com ordem invertida
+# O mesmo se aplica ao RIGHT JOIN, porem a tabela total será a SEGUNDA tabela citada no script
+
+select c.nome, p.nome, p.preco
+	from produto p
+    right join categoria c
+    on p.idcategoria = c.idCategoria
+    order by c.nome, p.nome;
+
+# Exemplo:
+# Exibir todos os produto, com seus preços e descrição da categoria (se houver associação)
+
+select p.nome, p.preco, c.nome
+	from categoria c
+    right join produto p
+    on p.idcategoria = c.idCategoria
+    order by p.nome, c.nome;
+
+
+# OUTER JOIN
+# O OUTER JOIN (também conhecido por Full Outer Join ou Full Join), 
+# tem como resultado todos os registros que estão na tabela A e todos os registros da tabela B.
+
+# ** O MySQL não suporte o OUTER JOIN
+# ** Neste caso, utiliza-se a clausula UNION para juntar um LEFT JOIN com um RIGHT JOIN
+
+# UNION
+# Combina o resultado de execução das duas queries e então executa um SELECT DISTINCT 
+# a fim de eliminar as linhas duplicadas. Este processo é executado mesmo que não hajam registros duplicados.
+
+
+# Exemplo: 
+# Exibir todos os produtos e categorias cadastrados
+
+select categoria.nome, produto.nome, produto.preco
+
+	from categoria
+    left join produto
+    on produto.idcategoria = categoria.idCategoria
+    
+    union
+    
+	select categoria.nome, produto.nome, produto.preco
+	from categoria
+    right join produto
+    on produto.idcategoria = categoria.idCategoria;
+
+
+

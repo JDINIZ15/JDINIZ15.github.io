@@ -1,0 +1,133 @@
+/* https://encurtador.com.br/hFtmu */ 
+
+/* database */
+
+create database dbaula2108 CHARACTER SET utf8 COLLATE utf8_general_ci;
+use dbaula2108;
+/* Tabelas */
+/* Chris & Samara =) */ 
+create table produto(
+	id int auto_increment primary key,
+	nome varchar(45),
+	descricao varchar(200),
+	preco float,
+	qtdestoque int
+);
+
+create table item(
+	id int AUTO_INCREMENT primary key,
+	idvenda int,
+	idproduto int,
+	qtd int
+);
+
+create table venda(
+	id int auto_increment primary key,
+	data date,
+	hora time,
+	idCliente int
+);
+
+create Table Cliente (     
+	id int NOT NULL AUTO_INCREMENT primary key,
+ 	nome VARCHAR(45),
+	uf char(2),
+	rendamensal float
+);
+
+
+/* Alter Tables */
+
+
+alter table item add foreign key(idproduto) references produto(id);
+alter table item add foreign key(idvenda) references venda(id);
+alter table venda add foreign key(idCliente) references Cliente(id);
+
+/* Popular Tabelas */
+
+Insert into Cliente (nome, uf, rendamensal) values ('Miguel', 'AM' , 5);
+Insert into Cliente (nome, uf, rendamensal) values ('Robsfounder', 'RS' , 69000);
+Insert into Cliente (nome, uf, rendamensal) values ('Tonhas', 'RJ' , 2000000);
+Insert into Cliente (nome, uf, rendamensal) values ('Inácio', 'CE' , 15);
+Insert into Cliente (nome, uf, rendamensal) values ('Luva', 'SE' , 9999999999999999999);
+
+insert into produto (nome, descricao, preco, qtdestoque) values ('Celular', 'Celular Motorola Moto E7 Plus 64gb', 1500, 10);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Caderno', 'Capa dura da Minnie com 96 folhas', 45.00, 100);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Casaco', 'Grande azul marinho Tamanho G', 250.00, 5);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Teclado', ' Gamer', 200.00, 100);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Mouse', 'Gamer', 150.00, 100);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Computador', 'Gamer' , 6000, 20);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Monitor', '1080 px', 300.00, 100);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Mochila', 'Branca e azul estampada', 80.00, 50);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Lancheira', 'Branca e azul estampada', 25.00, 50);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Oculos Escuros', 'Bom demaais', 25.00, 20);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Mesa', 'MDF', 600.00, 20);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Fone de ouvido', 'Fone de fio de cor branca', 40.00, 50);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Action figure', 'Anime Naruto de 160 cm' , 900.00, 10);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Garrafa de agua', 'Marca preciosa', 2.00, 200);
+insert into produto (nome, descricao, preco, qtdestoque) values ('Esmalte', 'Risque', 4.00, 100);
+
+
+insert into venda (data, hora, idCliente) values ('2024-09-21', '21:20', 1);
+insert into venda (data, hora, idCliente) values ('2024-07-24', '19:40', 2);
+insert into venda (data, hora, idCliente) values ('2024-05-29', '18:59', 3);
+insert into venda (data, hora, idCliente) values ('2024-02-07', '01:47', 4);
+insert into venda (data, hora, idCliente) values ('2024-06-10', '07:48', 5);
+
+Insert into Item (idvenda, idproduto, qtd) values (1, 3, 1);
+Insert into Item (idvenda, idproduto, qtd) values (1, 2, 1);
+Insert into Item (idvenda, idproduto, qtd) values (1, 1, 2);
+Insert into Item (idvenda, idproduto, qtd) values (1, 4, 1);
+Insert into Item (idvenda, idproduto, qtd) values (1, 9, 3);
+
+Insert into Item (idvenda, idproduto, qtd) values (2, 8, 1);
+Insert into Item (idvenda, idproduto, qtd) values (2, 7, 1);
+Insert into Item (idvenda, idproduto, qtd) values (2, 6, 2);
+Insert into Item (idvenda, idproduto, qtd) values (2, 5, 1);
+Insert into Item (idvenda, idproduto, qtd) values (2, 10, 3);
+
+Insert into Item (idvenda, idproduto, qtd) values (3, 5, 1);
+Insert into Item (idvenda, idproduto, qtd) values (3, 1, 1);
+Insert into Item (idvenda, idproduto, qtd) values (3, 12, 2);
+Insert into Item (idvenda, idproduto, qtd) values (3, 9, 1);
+Insert into Item (idvenda, idproduto, qtd) values (3, 11, 3);
+
+Insert into Item (idvenda, idproduto, qtd) values (4, 5, 1);
+Insert into Item (idvenda, idproduto, qtd) values (4, 3, 1);
+Insert into Item (idvenda, idproduto, qtd) values (4, 14, 2);
+Insert into Item (idvenda, idproduto, qtd) values (4, 9, 1);
+Insert into Item (idvenda, idproduto, qtd) values (4, 14, 3);
+
+Insert into Item (idvenda, idproduto, qtd) values (5, 5, 1);
+Insert into Item (idvenda, idproduto, qtd) values (5, 2, 1);
+Insert into Item (idvenda, idproduto, qtd) values (5, 3, 2);
+Insert into Item (idvenda, idproduto, qtd) values (5, 14, 1);
+Insert into Item (idvenda, idproduto, qtd) values (5, 15, 3);
+
+/*-------------------------------------------------------------------------------------------------*/
+insert into produto[id, nome, descricao, preco, qtdestoque] values (23, 'Detergente', 'Sabor limão', 1.20, 100)
+
+update produto
+set preco = preco * 0.9;
+
+Delete From cliente
+where rendamensal < 300;
+
+update produto
+set nome = 'Detergente Limpo', qtdestoque = 100
+where nome = 'Detergente'
+
+uptade cliente
+set uf = 'RJ';
+
+update produto 
+set preco = preco * 1.5
+where id <5;
+
+select * from produto;
+
+select nome, preco from produto where id=1;
+
+select * from cliente where rendamensal<5000 && rendamensal>2000;
+
+

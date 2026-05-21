@@ -1,0 +1,89 @@
+{
+  "filmes": [
+    {
+      "id": "1",
+      "titulo": "Uma Manhã Gloriosa",
+      "resumo": "Becky Fuller (Rachel McAdams) é uma jovem e batalhadora produtora de TV que fora demitida de um programa local de notícia. Ela é então contratada como produtora executiva de um programa matinal chamado \"Daybreak\", que ocupa o último lugar na classificação nacional. Para fazer subir a audiência, Fuller resolve contratar o lendário âncora de televisão Mike Pomeroy (Harrison Ford). Pomeroy, porém, se recusa a reportar assuntos comuns dos programas matinais e entra em conflito aberto com a coapresentadora do programa, Coleen Peck (Diane Keaton), e com todos em seu redor.",
+      "generos": ["Comédia", "Drama", "Romance"],
+      "elenco": [
+        { "ator": "Rachel McAdams" },
+        { "ator": "Harrison Ford" },
+        { "ator": "Diane Keaton" }
+      ],
+      "dataLancamento": {
+        "pais": "Portugal",
+        "dia": "01 de abril de 2011"
+      },
+      "classificacao": "12 anos",
+      "tituloOriginal": "Morning Glory",
+      "diretor": "Roger Michell",
+      "duracao": "102 min",
+      "avaliacao": 6.5,
+      "curiosidade": "Harrison Ford aceitou o papel porque queria interpretar um personagem mais cômico do que os que costumava fazer."
+    },
+    {
+      "id": "2",
+      "titulo": "Amor a Toda Prova",
+      "resumo": "Cal Weaver (Steve Carell) tem quarenta e poucos anos e leva uma vida perfeita, com um bom emprego, filhos e um casamento com a namorada do colégio, Emily (Julianne Moore). Até que, ao descobrir que Emily o está traindo e quer o divórcio, sua vida desaba por completo. Forçado a voltar ao mundo dos solteiros, ele enfrenta as dificuldades habituais de quem não sabe mais como se portar para se aproximar de uma mulher. É quando entra em cena Jacob Palmer (Ryan Gosling), um amigo que passa a lhe dar algumas dicas.",
+      "generos": ["Comédia", "Comédia Romântica"],
+      "elenco": [
+        { "ator": "Steve Carell" },
+        { "ator": "Ryan Gosling" },
+        { "ator": "Emma Stone" },
+        { "ator": "Julianne Moore" }
+      ],
+      "dataLancamento": {
+        "pais": "Brasil",
+        "dia": "26 de agosto de 2011"
+      },
+      "classificacao": "12 anos",
+      "tituloOriginal": "Crazy, Stupid, Love",
+      "diretor": "Glenn Ficarra, John Requa",
+      "duracao": "118 min",
+      "avaliacao": 7.4,
+      "curiosidade": "A cena em que Emma Stone e Ryan Gosling recriam a pose de 'Dirty Dancing' foi totalmente improvisada."
+    },
+    {
+      "id": "3",
+      "titulo": "Questão de Tempo",
+      "resumo": "Ao completar 21 anos, Tim Lake descobre que pode viajar no tempo. Ele decide usar esse dom para conquistar o coração de Mary. No entanto, ele logo percebe que essa habilidade não pode protegê-lo das tristezas e complicações da vida.",
+      "generos": ["Comédia", "Drama", "Romance"],
+      "elenco": [
+        { "ator": "Domhnall Gleeson" },
+        { "ator": "Rachel McAdams" },
+        { "ator": "Bill Nighy" }
+      ],
+      "dataLancamento": {
+        "pais": "Brasil",
+        "dia": "20 de dezembro de 2013"
+      },
+      "classificacao": "12 anos",
+      "tituloOriginal": "About Time",
+      "diretor": "Richard Curtis",
+      "duracao": "123 min",
+      "avaliacao": 7.8,
+      "curiosidade": "Apesar do tema de viagem no tempo, o foco do filme está mais nas relações humanas do que na ficção científica."
+    },
+    {
+      "id": "4",
+      "titulo": "Ela",
+      "resumo": "Em um futuro próximo, um homem solitário desenvolve um relacionamento incomum com um sistema operacional inteligente e sensível. À medida que a relação aprofunda, ele questiona o que significa amar.",
+      "generos": ["Drama", "Ficção Científica", "Romance"],
+      "elenco": [
+        { "ator": "Joaquin Phoenix" },
+        { "ator": "Scarlett Johansson" },
+        { "ator": "Amy Adams" }
+      ],
+      "dataLancamento": {
+        "pais": "Brasil",
+        "dia": "10 de janeiro de 2014"
+      },
+      "classificacao": "14 anos",
+      "tituloOriginal": "Her",
+      "diretor": "Spike Jonze",
+      "duracao": "126 min",
+      "avaliacao": 8.0,
+      "curiosidade": "A voz da assistente virtual foi originalmente gravada por outra atriz e substituída por Scarlett Johansson após as filmagens."
+    }
+  ]
+}

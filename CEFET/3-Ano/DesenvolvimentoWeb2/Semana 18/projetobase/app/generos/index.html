@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Generos</title>
+    <script type="module" src="gestor.js"></script>
+</head>
+<body>
+   <header>
+        <a href="../../index.html">Home</a>
+        <h3>Generos</h3>
+        <hr>
+   </header>
+   <main>
+        <section id="formulario">
+            <form id="form-generos">
+                <input type="hidden" id="id">
+                <label for="descricao">Descrição: </label>
+                <input type="text" id="descricao" />
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </form>
+            <hr>
+            <span id="msgErro" style="color: red;"></span>
+        </section>
+        <section id="tabela">
+            <table id="tbl-generos" border="1">
+                <thead>
+                    <th>Id</th><th>Descrição</th><th>Ações</th>
+                </thead>
+                <tbody>
+                    <!-- aqui montaremos a tabela -->
+                </tbody>
+            </table>
+        </section>
+   </main> 
+</body>
+</html>

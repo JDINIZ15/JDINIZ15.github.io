@@ -1,0 +1,45 @@
+DB VENDAS
+
+
+select * 
+from categoria;
+
+select *
+from produto;
+
+SELECT p.idproduto, p.nome, c.nome
+from produto p, categoria c
+where p.idcategoria = c.idCategoria;
+
+select *
+from produto
+join categoria
+on produto.idcategoria = categoria.idcategoria;
+
+select p.idproduto, p.nome, c.idcategoria, c.nome
+from produto p
+left join categoria c
+on c.idcategoria = p.idcategoria;
+
+select c.idcategoria, p.nome, c.nome
+from porduto p
+right join categoria c
+on c.idcategoria = p.idcategoria;
+
+------------------------------------------------------------------------------------------
+
+DB inquilino
+
+select nome, ID
+from inquilino;
+
+
+select nome, ID
+from inquilino
+order by ACS;
+
+O inquilino 9, vulgo Rafael Alves, não possui aluguel
+
+select i.nome, a.Valor_Aluguel
+from inquilino i, aluguel a
+where i.ID = c.Inquilino_ID && i.Status_Contrato = "ativo"; 

@@ -1,0 +1,73 @@
+/* 1. Criar uma tabela*/
+create TABLE aluno (
+    id int, 
+    nome varchar (50),
+    primary key (id)
+);
+
+-------------------------------
+/*2. Inserir um registro*/
+insert into aluno(id, nome)
+values (1, 'Maria');
+
+-------------------------------
+/*3. Mostrar os dados*/
+
+SELECT *FROM aluno
+
+-------------------------------
+/*4. Criar uma tabela*/
+
+CREATE TABLE aluno2(
+	id int AUTO_INCREMENT,
+    nome varchar (50),
+    UF char(2),
+    nota float,
+    PRIMARY KEY (id)
+)
+
+------------------------------
+
+/*5. inserir um registro*/
+
+insert into aluno2(nome,UF,nota)
+values('Maria', 'RJ', 3.6);
+
+------------------------------
+
+/*6. Mostrar os dados*/
+
+select *from aluno2
+
+
+
+/*7. Relacionamento: medico -> paciente*/
+
+ create table medico(
+	idmed int,
+	nome varchar(35) not null,
+	primary key(idmed)
+);
+
+ create table plano(
+	idpla int,
+	nomeplan varchar(20),
+	primary key(idpla)
+);
+ create table paciente(
+	idpac int,
+	nome varchar(30),
+	idpla int,
+	primary key(idpac),
+;	foreign key (idpla) references plano(idpla)
+)
+
+Create table consulta(
+	idcons int primary key auto_increment,
+	idmed int,
+	idpac int,
+	datcon date,
+	prescricao varchar(3000),
+	foreign key (idmed) references medico (idmed),
+	foreign key (idpac) references paciente (idpac)
+) 

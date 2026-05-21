@@ -1,0 +1,25 @@
+h1 {
+  border: 2px solid #ccc;
+  padding: 20px 20px 200px 20px;
+}
+.caixa {
+  border: 2px solid #ccc;
+  padding: 20px 20px 200px 20px;
+  margin-top: 40px;
+}
+p {
+  background-color: #e7e7e7;
+  font-size: 20px;
+  margin: 0px;
+  padding: 20px;
+  border: 1px solid black;
+}
+.fixo {
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  right: 20px;
+}
+body {
+  margin: 0px;
+}

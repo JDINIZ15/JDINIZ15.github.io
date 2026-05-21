@@ -1,0 +1,319 @@
+create database pokedex;
+
+use pokedex;
+
+
+
+create table tipagem(
+ tipo1 varchar (50),
+ tipo2 varchar (50),
+ idTipagem int primary key
+);
+
+create table Ovos(
+ grupo1 varchar (50),
+ grupo2 varchar (50),
+ idOvos int primary key
+);
+
+create table regiao (
+	geracao varchar (50),
+	nome varchar (50),
+	localizacao varchar (50),
+	idRegiao int primary key
+);
+
+create table moveset(
+	ataque1 varchar (50),
+	ataque2 varchar (50),
+	ataque3 varchar (50),
+	ataque4 varchar (50),
+	idMoveset int primary key
+);
+
+
+create table Pokemon (
+    idpokemon int, 
+    idTipagem int,
+    idOvos int,
+    nome varchar (50),
+    habilidade varchar (50), 
+    nature varchar (50),
+    primary key (idpokemon),
+    datacap date,
+    level int,
+    foreign key (idTipagem) references tipagem (idTipagem),
+    foreign key (idOvos) references ovos(idOvos)
+
+);
+
+
+create table pokemove(
+    idpokemon int,
+    idMoveset int,
+    idPokemove int,
+    PRIMARY key (idPokemove),
+    foreign key (idMoveset) references moveset(idMoveset),
+    foreign key (idpokemon) references pokemon(idpokemon)
+
+);
+
+create table pokereg(
+    idpokemon int,
+    idRegiao int,
+    idPokereg int,
+    PRIMARY key (idPokereg),
+    foreign key (idpokemon) references pokemon(idpokemon),
+    foreign key (idRegiao) references Regiao(idRegiao)
+);
+
+
+/*---------------------------------------------------------------------------------------------*/
+
+
+INSERT into moveset(ataque1, ataque2, ataque3, ataque4, idMoveset)
+	values('Discharge', 'Gear Grind', 'Hyper Beam', 'Shift Gear', 1);
+
+INSERT into ovos(grupo1, grupo2, idOvos)
+	values('Mineral','Mineral', 1);
+
+INSERT into regiao(geracao, nome, localizacao, idRegiao)
+	values('5º', 'Unova', 'P2 Laboratory', 1);
+
+INSERT into tipagem(tipo1, tipo2, idTipagem)
+	values('STEEL', 'STEEL', 1);
+
+INSERT into pokemon(idpokemon, idTipagem, idOvos, nome, habilidade, nature, datacap, level)
+	values(601, 1, 1, 'Klinklang', 'Clear body', 'Sassy', '2021/10/30' ,55);
+
+INSERT into pokemove(idpokemon, idMoveset, idPokemove)
+	values(601, 1, 1);
+
+INSERT into pokereg(idpokemon, idRegiao, idPokereg)
+	values(601, 1, 1);
+
+/*---------------------------------------------------------------------------------------------*/
+
+
+INSERT into ovos(grupo1, grupo2, idOvos)
+	values('Mineral','Mineral', 2);
+
+INSERT into regiao(geracao, nome, localizacao, idRegiao)
+	values('2º', 'Johto', 'Mt. Silver', 2);
+
+INSERT into tipagem(tipo1, tipo2, idTipagem)
+	values('STEEL', 'GROUND', 2);
+
+INSERT into moveset(ataque1, ataque2, ataque3, ataque4, idMoveset)
+	values('Stone Edge', 'Crunch', 'Iron Tail', 'Dragon Breath',2);
+
+INSERT into pokemon(idpokemon, idTipagem, idOvos, nome, habilidade, nature, datacap, level)
+	values(208, 2, 2, 'Steelix', 'Sher Force', 'Adamant', '2007/05/10',37);
+
+INSERT into pokemove(idpokemon, idMoveset, idPokemove)
+	values(208, 2, 2);
+
+INSERT into pokereg(idpokemon, idRegiao, idPokereg)
+	values(208, 2, 2);
+
+/*---------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+INSERT into ovos(grupo1, grupo2, idOvos)
+	values('Water 1','Water 1', 3);
+
+INSERT into regiao(geracao, nome, localizacao, idRegiao)
+	values('1º', 'Kanto', 'Cerulean Cave', 3);
+
+INSERT into tipagem(tipo1, tipo2, idTipagem)
+	values('WATER', 'WATER', 3);
+
+INSERT into moveset(ataque1, ataque2, ataque3, ataque4, idMoveset)
+	values('Hypnosis', 'Hydro Pump', 'Belly Drum', 'Rain Dance',3);
+
+INSERT into pokemon(idpokemon, idTipagem, idOvos, nome, habilidade, nature, datacap, level)
+	values(61, 3, 3, 'Poliwhirl', 'Swift Swin', 'Bashful', '2021/12/17', 22);
+
+INSERT into pokemove(idpokemon, idMoveset, idPokemove)
+	values(61, 3, 3);
+
+INSERT into pokereg(idpokemon, idRegiao, idPokereg)
+	values(61, 3, 3);
+
+
+
+/*---------------------------------------------------------------------------------------------*/
+
+
+
+INSERT into ovos(grupo1, grupo2, idOvos)
+	values('Field','Field', 4);
+
+INSERT into regiao(geracao, nome, localizacao, idRegiao)
+	values('1º', 'Kanto', 'Route 6', 4);
+
+INSERT into tipagem(tipo1, tipo2, idTipagem)
+	values('NORMAL', 'NORMAL', 4);
+
+
+INSERT into moveset(ataque1, ataque2, ataque3, ataque4, idMoveset)
+	values('Fake Out', 'Swagger', 'Slash', 'Fury Swipes',4);
+
+INSERT into pokemon(idpokemon, idTipagem, idOvos, nome, habilidade, nature, datacap, level)
+	values(52, 4, 4, 'Meowth', 'Unnerve', 'Modest', '2021/09/09' , 12);
+
+
+INSERT into pokemove(idpokemon, idMoveset, idPokemove)
+	values(52, 4, 4);
+
+INSERT into pokereg(idpokemon, idRegiao, idPokereg)
+	values(52, 4, 4);
+
+
+
+/*---------------------------------------------------------------------------------------------*/
+
+
+
+INSERT into moveset(ataque1, ataque2, ataque3, ataque4, idMoveset)
+	values('Double-Edge', 'Cotton Guard', 'Reversal', 'Take Down',5);
+
+INSERT into ovos(grupo1, grupo2, idOvos)
+	values('Field','Field', 5);
+
+INSERT into regiao(geracao, nome, localizacao, idRegiao)
+	values('8º', 'Galar', 'Route 1', 5);
+
+INSERT into tipagem(tipo1, tipo2, idTipagem)
+	values('NORMAL', 'NORMAL', 5);
+
+INSERT into pokemon(idpokemon, idTipagem, idOvos, nome, habilidade, nature, datacap, level)
+	values(831, 5, 5, 'Wooloo', 'Bulletproof', 'Mild','2021/02/19', 3);
+
+
+INSERT into pokemove(idpokemon, idMoveset, idPokemove)
+	values(831, 5, 5);
+
+INSERT into pokereg(idpokemon, idRegiao, idPokereg)
+	values(831, 5, 5);
+
+
+
+
+
+
+
+
+/*---------------------------------------------------------------------------------------------*/
+
+/* 6.1 */
+
+select * from pokemon;
+
+/* 6.2 */
+
+select nome from pokemon;
+
+/* 6.3 */
+
+select nome, level from pokemon;
+
+/* 6.4 */
+
+select nome from pokemon
+where idpokemon > 100;
+
+/* 6.5 */
+
+select level, level*1.5 from pokemon;
+
+
+/* 6.6 */
+
+select * from pokemon
+order by level asc;
+
+/* 6.7 */
+
+select pokemon.nome, tipagem.tipo1, tipagem.tipo2
+from pokemon, tipagem
+where pokemon.idTipagem = tipagem.idTipagem;
+
+
+
+
+/* 6.8 */
+
+SELECT * FROM pokemon
+WHERE datacap >= '2021-01-01' AND datacap<= '2021-12-31';
+
+/* 6.9 */
+
+update pokemon
+set nome = 'Fraco'
+where level < 50;
+
+
+/* 6.10 */
+
+update pokemon 
+set level = level*2;
+
+
+/* 6.11 */
+
+Delete from pokemon 
+where idpokemon > 100; 
+
+/* 6.12 */
+
+delete from pokemon;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

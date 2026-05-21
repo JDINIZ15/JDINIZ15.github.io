@@ -1,0 +1,8 @@
+.jumbotron{
+    padding: 9rem 1rem;
+    margin-bottom: 2rem;
+    background-image: url(../img/vitrine.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

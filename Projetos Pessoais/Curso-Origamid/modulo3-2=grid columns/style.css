@@ -1,0 +1,36 @@
+body {
+  font-family: sans-serif;
+  margin: 0px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.item {
+  background-color: #f7f7f7;
+  border: 2px solid #e0e0e0;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 4px;
+  margin-left: 15px;
+  display: grid;
+}
+
+.NomeProduto {
+  padding: 0px;
+  margin: 0px;
+}
+
+.botao {
+  text-decoration: none;
+  color: black;
+  background-color: #a8f;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.produtos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}

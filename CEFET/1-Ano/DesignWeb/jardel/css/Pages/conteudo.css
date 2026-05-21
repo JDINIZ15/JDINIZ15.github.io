@@ -1,0 +1,31 @@
+.conteudo__main {
+    width: 90%;
+    margin: 0 auto;
+    padding: 3%;
+}
+
+.main__box {
+    margin-bottom: 10%;
+    border: 5px solid black;
+    background-color: rgb(255,192,68, 1.0);;
+    padding: 1% 2% 2% 2%;
+}
+
+.main__box > h2{
+    text-align: center;
+    padding-bottom: 45px;
+}
+
+.box__list__item {
+    margin: 15px;
+}
+
+.box__list__link {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+.box__list__link:hover {
+    background-color: white;
+    padding: 10px;
+}
