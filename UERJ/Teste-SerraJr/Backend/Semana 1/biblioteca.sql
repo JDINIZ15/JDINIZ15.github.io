@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS biblioteca
+DEFAULT CHARSET=utf8
+DEFAULT COLLATE=utf8_unicode_ci;
+
+USE biblioteca;
+
+
+DROP TABLE IF EXISTS emprestimo;
+DROP TABLE IF EXISTS livro;
+DROP TABLE IF EXISTS usuario;
+
+
+CREATE TABLE usuario(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  telefone VARCHAR(20) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+
+CREATE TABLE livro(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  autor VARCHAR(100) NOT NULL
+) ENGINE=InnoDB;
+
+
+CREATE TABLE emprestimo(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  fkUsuario INT NOT NULL,
+  fkLivro INT NOT NULL,
+  dataEmprestimo DATE NOT NULL,
+  dataDevolucao DATE,
+
+  FOREIGN KEY (fkUsuario) REFERENCES usuario(id),
+  FOREIGN KEY (fkLivro) REFERENCES livro(id)
+
+) ENGINE=InnoDB;
